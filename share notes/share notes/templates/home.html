@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Welcome, {{ user.username }}</h2>
+  <h3>Your Documents:</h3>
+  {% for document in documents %}
+    <p>{{ document.name }}</p>
+    <!-- Display more details or provide download links as needed -->
+  {% empty %}
+    <p>No documents uploaded yet.</p>
+  {% endfor %}
+  <a href="{% url 'upload_document' %}" class="btn btn-primary">Upload Document</a>
+</div>
+{% endblock %}
